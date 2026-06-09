@@ -1,0 +1,26 @@
+[workspace]
+members = ["crates/*"]
+resolver = "3"
+
+[package]
+name = "banking-helper"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+derive_more = { version = "2.1.1", features = ["deref"] }
+enable-banking = { path = "crates/enable-banking" }
+openssl = "0.10.79"
+relm4 = { version = "0.11.0", features = ["gnome_47", "libadwaita"] }
+relm4-components = "0.11.0"
+relm4-icons = "0.11.0"
+serde = { version = "1.0.228", features = ["derive"] }
+thiserror = "2.0.18"
+tokio = { version = "1.52.3", features = ["fs"] }
+toml = { version = "1.1.2", features = ["serde"] }
+tracker = "0.2.2"
+url = "2.5.8"
+user_dirs = "0.2.0"
+
+[build-dependencies]
+relm4-icons-build = "0.11.0"
