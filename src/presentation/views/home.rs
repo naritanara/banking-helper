@@ -1,5 +1,5 @@
 use gtk::prelude::*;
-use relm4::prelude::*;
+use relm4::{adw::BannerButtonStyle, prelude::*};
 
 use crate::{
     domain::application::SharedApplication,
@@ -35,20 +35,26 @@ impl Component for HomeView {
             adw::ToolbarView {
                 add_top_bar = &adw::HeaderBar {},
 
+                add_top_bar = &adw::Banner {
+                    #[watch]
+                    set_revealed: model.application.blocking_read().get_api_credentials().is_none(),
+
+                    set_title: "The application has not been set up yet. Click the button below to start the initial setup.",
+
+                    set_button_label: Some("Start Initial Setup"),
+                    set_button_style: BannerButtonStyle::Suggested,
+                    connect_button_clicked => HomeInput::OpenInitialSetup,
+
+                    #[watch]
+                    set_sensitive: model.setup_view.is_none(),
+                },
+
                 #[template]
                 ClampBox {
 
                     #[template_child]
                     contents {
-                        gtk::Label {
-                            set_text: "The application has not been set up yet. Click the button below to start the initial setup."
-                        },
 
-                        gtk::Button::with_label("Start Initial Setup") {
-                            #[watch]
-                            set_sensitive: model.setup_view.is_none(),
-                            connect_clicked => HomeInput::OpenInitialSetup,
-                        }
                     }
                 }
             },

@@ -11,7 +11,7 @@ edition = "2024"
 derive_more = { version = "2.1.1", features = ["deref"] }
 enable-banking = { path = "crates/enable-banking" }
 openssl = "0.10.79"
-relm4 = { version = "0.11.0", features = ["gnome_47", "libadwaita"] }
+relm4 = { version = "0.11.0", features = ["gnome_48", "libadwaita"] }
 relm4-components = "0.11.0"
 relm4-icons = "0.11.0"
 serde = { version = "1.0.228", features = ["derive"] }
