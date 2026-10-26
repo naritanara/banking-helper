@@ -1,0 +1,11 @@
+# Created by openapi-to-rust init.
+[generator]
+spec_path = "https://enablebanking.com/docs/api/reference/enablebanking-api.yaml"
+output_dir = "src/generated"
+module_name = "raw_api"
+
+[features]
+enable_async_client = true
+
+[http_client.tracing]
+enabled = false

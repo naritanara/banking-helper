@@ -25,6 +25,7 @@
           mkShell {
             packages = [
               (rust-bin.stable.latest.default)
+              cmake
               pkg-config
               gtk4
               libadwaita

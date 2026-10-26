@@ -1,6 +1,3 @@
-mod jwt;
-pub mod client;
-pub mod endpoints;
-pub mod schemas;
-
-pub use client::Client;
+#[path = "generated/mod.rs"]
+#[allow(rustc::all, clippy::all, rustdoc::all, reason = "generated")]
+pub mod raw_api;
